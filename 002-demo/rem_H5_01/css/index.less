@@ -1,0 +1,49 @@
+// 3.查询：1rem = 75px;
+// 4.替换：从前到后；
+
+body {
+  // 标注多少，就是750px;
+  width: 750/75rem;
+
+  margin: 0 auto;
+  font-size: 24/75rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// -------------------------搜索区
+header {
+  width: 750/75rem;
+  height: 88/75rem;
+  display: flex;
+  background-color: #FFC001;
+  position: fixed;
+  .left {
+    width: 40/75rem;
+    height: 70/75rem;
+    margin: (88-70)/2/75rem 15/75rem;
+    // background-color: #ccc;
+    background: url('../imgs/classify.png') no-repeat;
+    background-size: 100%;
+  }
+  .mid {
+    flex: 1;
+    background-color: #fff;
+    margin: 10/75rem 0;
+    border-radius: (88-10*2)/2/75rem;
+    line-height: (88-10*2)/75rem;
+    padding-left: 50/75rem;
+  }
+  .right {
+    width: 88/75rem;
+    height: 88/75rem;
+    line-height: 88/75rem;
+    text-align: center;
+    color: #fff;
+    
+  }
+}
+

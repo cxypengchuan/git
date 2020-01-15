@@ -1,0 +1,60 @@
+@media screen and (min-width:750px) {
+    html {
+      font-size: 75px!important;
+    }
+  }
+  
+  // JS 不知道小于320px 以后应该不变；
+  @media screen and (max-width:319px) {
+    html {
+      font-size: 32px!important;
+    }
+  }
+  
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.head {
+    width:100%;
+    height: 60  / 75rem;
+    background-color: pink;
+    position: relative;
+    padding-left: 60  / 75rem;
+    padding-right:60  / 75rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+}
+.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:60  / 75rem;
+    height: 60  / 75rem;
+    background-color: green;
+    font-size: 20  / 75rem;
+    line-height: 60  / 75rem;
+    text-align: center;
+
+}
+.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width:60  / 75rem;
+    height: 60  / 75rem;
+    background-color: green;
+    font-size: 20  / 75rem;
+    line-height: 60  / 75rem;
+    text-align: center;
+}
+.mid {
+    height: 100%;
+    background-color: red;
+   flex: 1;
+    font-size: 20  / 75rem;
+    line-height: 60  / 75rem;
+    text-align: center;
+}

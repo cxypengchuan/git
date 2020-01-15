@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 预设置的档位已经划分完毕 */
+    /* 1.  0-500 */
+    
+    @media screen and (min-width:0) {
+      /* rem 定义的语法格式 */
+      /* 1rem = 16px */
+      html {
+        font-size: 18px;
+      }
+    }
+    /* 2. 500-700 */
+    
+    @media screen and (min-width:500px) {
+      /* 1rem = 20px */
+      html {
+        font-size: 20px;
+      }
+    }
+    /* 3. 700~ */
+    
+    @media screen and (min-width:700px) {
+      /* 1rem = 30px */
+      html {
+        font-size: 30px;
+      }
+    }
+    
+    div {
+      width: 5rem;
+      height: 6rem;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+
+</html>

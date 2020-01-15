@@ -1,0 +1,62 @@
+// 3. JS : 1rem  = 750px /10=75px;
+// 4. 全部替换；
+
+// 发现超过750px 以后 1rem 背后代表的值还在往上变；
+// JS 不知道超过750px 以后应该不变；
+@media screen and (min-width:750px) {
+  html {
+    font-size: 75px!important;
+  }
+}
+
+// JS 不知道小于320px 以后应该不变；
+@media screen and (max-width:319px) {
+  html {
+    font-size: 32px!important;
+  }
+}
+
+body {
+  width: 750/75rem;
+  margin: 0 auto;
+  font-size: 24/75rem!important;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+// -------------------------搜索区
+header {
+  width: 750/75rem;
+  height: 88/75rem;
+  display: flex;
+  background-color: #FFC001;
+  position: fixed;
+  .left {
+    width: 40/75rem;
+    height: 70/75rem;
+    margin: (88-70)/2/75rem 15/75rem;
+    // background-color: #ccc;
+    background: url('../imgs/classify.png') no-repeat;
+    background-size: 100%;
+  }
+  .mid {
+    flex: 1;
+    background-color: #fff;
+    margin: 10/75rem 0;
+    border-radius: (88-10*2)/2/75rem;
+    line-height: (88-10*2)/75rem;
+    padding-left: 50/75rem;
+  }
+  .right {
+    width: 88/75rem;
+    height: 88/75rem;
+    line-height: 88/75rem;
+    text-align: center;
+    color: #fff;
+    
+  }
+}
+

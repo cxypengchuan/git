@@ -1,0 +1,47 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px!important;
+  }
+}
+@media screen and (max-width: 319px) {
+  html {
+    font-size: 32px!important;
+  }
+}
+body {
+  width: 10rem;
+  margin: 0 auto;
+  font-size: 0.32rem !important;
+}
+a {
+  text-decoration: none;
+}
+header {
+  width: 10rem;
+  height: 1.17333333rem;
+  display: flex;
+  background-color: #FFC001;
+  position: fixed;
+}
+header .left {
+  width: 0.53333333rem;
+  height: 0.93333333rem;
+  margin: 0.12rem 0.2rem;
+  background: url('../imgs/classify.png') no-repeat;
+  background-size: 100%;
+}
+header .mid {
+  flex: 1;
+  background-color: #fff;
+  margin: 0.13333333rem 0;
+  border-radius: 0.45333333rem;
+  line-height: 0.90666667rem;
+  padding-left: 0.66666667rem;
+}
+header .right {
+  width: 1.17333333rem;
+  height: 1.17333333rem;
+  line-height: 1.17333333rem;
+  text-align: center;
+  color: #fff;
+}

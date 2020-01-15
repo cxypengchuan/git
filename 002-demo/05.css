@@ -1,0 +1,45 @@
+div {
+  height: 100px;
+}
+header {
+  background-color: red;
+}
+div {
+  color: red;
+}
+a {
+  color: red;
+}
+p {
+  color: red;
+}
+header {
+  height: 0.81481481rem;
+  display: flex;
+}
+header .search {
+  flex: 1;
+}
+header a {
+  width: 0.81481481rem;
+  height: 0.81481481rem;
+}
+header a .img {
+  width: 0.42592593rem;
+}
+header a .info {
+  color: #666;
+}
+header a::before {
+  content: "";
+}
+header a:hover {
+  background-color: #222;
+}
+div {
+  width: 634px;
+  height: 100px;
+  height: 0.81481481rem;
+  background-color: #444444;
+  width: 80px;
+}

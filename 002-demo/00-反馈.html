@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .p {
+      width: 800px;
+      height: 600px;
+      border: 1px solid #000;
+      /* flex */
+      display: flex;
+      /* 多个整体，换行 */
+      flex-wrap: wrap;
+      /* 单个整体，单个行控制，一定要先找单个整体的区间 */
+      /* align-items: center; */
+      /* 多行控制，没有单独整体，所有行都是一个整体去看待 */
+      align-content: center;
+    }
+    
+    .son {
+      width: 100px;
+      height: 100px;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="p">
+    <div class="son">1</div>
+    <div class="son">2</div>
+    <div class="son">3</div>
+    <div class="son">4</div>
+    <div class="son">1</div>
+    <div class="son">2</div>
+    <div class="son">3</div>
+    <div class="son">4</div>
+    <div class="son">1</div>
+    <div class="son">2</div>
+    <div class="son">3</div>
+    <div class="son">4</div>
+    <div class="son">1</div>
+    <div class="son">2</div>
+    <div class="son">3</div>
+    <div class="son">4</div>
+  </div>
+
+
+
+  <header>
+    <div class="search"></div>
+    <a href="#">
+      <span class="img"></span>
+      <span class="info"></span>
+    </a>
+  </header>
+</body>
+
+</html>

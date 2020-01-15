@@ -1,0 +1,70 @@
+// 1.CSS 扩展语言，可以在里面继续写CSS代码
+// 2.如果写样式需要修改，一直要改less文件，不要改css文件；
+div {
+  height: 100px;
+}
+
+
+// 3.less 优势：变量
+@laoban:red;
+header {
+  background-color: @laoban;
+}
+div {
+  color: @laoban;
+}
+a {
+  color: @laoban;
+}
+p {
+  color: @laoban;
+}
+
+
+// 3.less 优势：嵌套
+// 要求：css 父子结构
+// 可以按照HTML嵌套关系去写的样式
+header {
+  height: 44/54rem;
+  display: flex;
+  .search {
+    flex: 1
+  }
+  a {
+    width: 44/54rem;
+    height: 44/54rem;
+    .img {
+      width: 23/54rem;
+    }
+    .info {
+      color:#666;
+    }
+  }
+  a::before {
+    content:"";
+  }
+  a:hover {
+    background-color: #222;
+  }
+}
+
+
+
+
+// 4.less 优势：计算
+div {
+  width: 100px-20px;
+  width: 456px+178px;
+  height: 10*10px;
+  height: 44 / 54rem;
+  background-color: #666-#222;
+  // 单位:不参加运算，最后选一个单位；如果两个单位不同，选择前面的单位；
+  width:100px-20rem;
+}
+
+
+
+
+
+
+

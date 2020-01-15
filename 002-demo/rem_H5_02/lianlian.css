@@ -1,0 +1,55 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 75px!important;
+  }
+}
+@media screen and (max-width: 319px) {
+  html {
+    font-size: 32px!important;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.head {
+  width: 100%;
+  height: 0.8rem;
+  background-color: pink;
+  position: relative;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+}
+.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: green;
+  font-size: 0.26666667rem;
+  line-height: 0.8rem;
+  text-align: center;
+}
+.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: green;
+  font-size: 0.26666667rem;
+  line-height: 0.8rem;
+  text-align: center;
+}
+.mid {
+  height: 100%;
+  background-color: red;
+  flex: 1;
+  font-size: 0.26666667rem;
+  line-height: 0.8rem;
+  text-align: center;
+}
