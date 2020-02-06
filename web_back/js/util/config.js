@@ -16,5 +16,7 @@ var APILIST = {
     category_add: BASEURL + '/admin/category_add',
     // 删除文章分类
     category_del: BASEURL + '/admin/category_delete',
+    //编辑文章分类
+    category_edit: BASEURL + '/admin/category_edit',
 
 }
