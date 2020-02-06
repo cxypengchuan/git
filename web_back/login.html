@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>大事件-后台登录页</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="main_wrap">
+        <div class="header">
+            <a href="#" class="logo"><img src="images/logo.png" alt=""></a>
+            <div class="copyright">CopyRight © 2019 深圳百秀信息技术股份有限公司<br>All Rights Reserved</div>
+        </div>
+
+        <div class="login_form_con">
+            <div class="login_title"></div>
+            <form class="login_form">
+                <i class="iconfont icon-user"></i>
+                <i class="iconfont icon-key"></i>
+                <input type="text" id="username" class="input_txt" placeholder="用户名">
+                <input type="password" id="password" class="input_pass" placeholder="密码">
+                <!-- 如果是submit的按钮在表单中，它会有一个提交的动作 -->
+                <!-- 把submit改成button，则它就不会提交表单了 -->
+                <input id="btnLogin" type="button" class="input_sub" value="登 录">
+            </form>
+        </div>
+    </div>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+    <!-- 引入config.js模块 -->
+    <script src="./js/util/config.js"></script>
+    <!-- 引入user模块 -->
+    <script src="./js/util/user.js"></script>
+    
+    <script>
+        // 1. 用户登陆
+        // 思路：
+        // 给按钮添加点击事件：
+        // （1）收集用户信息，简单判断.
+        //  (2) 请求ajax接口，根据接口的反馈做后续的动作
+        $('#btnLogin').click(function(){
+            var name =  $('#username').val().trim()
+            var password = $('#password').val().trim()
+            if(name.length === 0 || password.length === 0){
+                alert('不能为空')
+                return
+            }
+            
+            // 用户登陆
+            user.login(name, password).then(function(res){
+                console.log(res)
+                //2. 反馈做后续的动作
+                if(res.code === 200){
+                    // alert('登陆成功')
+                    // 跳到主页
+                    window.location.href = "./index.html"
+                } else {
+                    // 失败，直接打出错别信息
+                    alert(res.msg)
+                }
+            })
+        })
+    </script> 
+</body>
+</html>
