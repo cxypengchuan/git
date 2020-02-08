@@ -53,40 +53,24 @@
                         <th class="text-center" width="100">操作</th>
                     </tr>
                 </thead>
-                <tbody>
-
-
-
+                <tbody id="tbd">
                     <tr>
-
                         <td>王积千造统最头</td>
                         <td>杰克</td>
                         <td>奇趣事</td>
                         <td class="text-center">2017-06-08 07:08:46</td>
-
-
                         <td class="text-center">已发布</td>
-
-
                         <td class="text-center">
                             <a href="article_edit.html" class="btn btn-default btn-xs">编辑</a>
                             <a href="javascript:deleteTr( 1005 );" class="btn btn-danger btn-xs">删除</a>
                         </td>
                     </tr>
-
-
-
-                    <tr>
-
+                    <!-- <tr>
                         <td>级电使正回</td>
                         <td>肉丝</td>
                         <td>爱旅行</td>
                         <td class="text-center">2017-06-06 10:45:24</td>
-
-
                         <td class="text-center">已发布</td>
-
-
                         <td class="text-center">
                             <a href="article_edit.html" class="btn btn-default btn-xs">编辑</a>
                             <a href="javascript:deleteTr( 1004 );" class="btn btn-danger btn-xs">删除</a>
@@ -244,7 +228,7 @@
                             <a href="javascript:deleteTr( 995 );" class="btn btn-danger btn-xs">删除</a>
                         </td>
                     </tr>
-
+ -->
 
                 </tbody>
             </table>
@@ -277,11 +261,28 @@
     <script src="./js/util/category.js"></script>
     <script src="./js/util/config.js"></script>
     <script src="./js/template-web.js"></script>
+    <script src="./js/util/article.js"></script>
+    <!-- 文章类别 -->
     <script id="tem_category" type="text/html">
         <option>所有分类</option>
         {{each data item}}
         <option>{{item.name}}</option>
          {{/each}}
+         //文章列表信息
+         <script id="list" type="text/html">
+            {{each data item}}
+                <tr>
+                <td>{{item.title}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.type}}</td>
+                <td class="text-center">{{item.date}}</td>
+                <td class="text-center">{{item.state}}</td>
+                <td class="text-center">
+                    <a href="post-edit.html?id=999" class="btn btn-default btn-xs">编辑</a>
+                    <a href="javascript:deleteTr( 999 );" class="btn btn-danger btn-xs">删除</a>
+                </td>
+            </tr>
+             {{/each}}
     </script>
     <script>
         //1.获得所有文章分类信息，并显示在下拉列表里
@@ -290,6 +291,14 @@
             var htmlstr = template('tem_category', res)
             $('#selCategory').html(htmlstr);
         })
+        //2.获取文章列表并显示在表格上
+        article.get().then(function (res) {
+            if (res.code == 200) {
+                var htmlstr = template('list', res)
+                $('#tbd').html(htmlstr);
+            }
+        })
+
 
     </script>
 </body>
