@@ -5,7 +5,7 @@
 var BASEURL = 'http://192.168.1.118:8000'
 
 // 用来保存所有的接口信息
-var APILIST = {
+const APILIST = {
     user_login: BASEURL + '/admin/login',
     user_logout: BASEURL + '/admin/logout',
     user_getInfo: BASEURL + '/admin/getuser',

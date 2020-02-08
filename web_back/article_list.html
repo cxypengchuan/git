@@ -293,7 +293,8 @@
         })
         //2.获取文章列表并显示在表格上
         article.get().then(function (res) {
-            if (res.code == 200) {
+            let { code } = res;
+            if (code == 200) {
                 var htmlstr = template('list', res)
                 $('#tbd').html(htmlstr);
             }

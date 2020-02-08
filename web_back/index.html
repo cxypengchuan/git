@@ -122,26 +122,28 @@
         $('#btnLogout').click(function () {
             // 用户退出
             user.logout().then(function (res) {
-                console.log(res);
-                if (res.code === 200) {
+                //console.log(res);
+                let { code, msg } = res;
+                if (code === 200) {
                     alert('成功退出')
                     window.location.href = "./login.html"
                 } else {
-                    alert(res.msg)
+                    alert(msg)
                 }
             })
         })
 
         // 2. 获取管理员信息并显示
         user.getInfo().then(function (res) {
-            console.log(res)
-            if (res.code === 200) {
+            // console.log(res)
+            let { code, msg } = res;
+            if (code === 200) {
                 // 显示内容
                 $('#userName').text(res.data.nickname)
                 $('.userImg').attr('src', res.data.user_pic)
             }
         })
-        //2.获取文章列表
+
 
     </script>
 

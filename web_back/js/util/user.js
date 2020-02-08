@@ -7,18 +7,18 @@
 
 var user = {
     // 用户登陆
-    login: function (name, password) {
+    login(name, password) {
         return $.post(APILIST.user_login, {
             'user_name': name,
             'password': password
         })
     },
     // 用户退出
-    logout: function () {
+    logout() {
         return $.post(APILIST.user_logout)
     },
     // 获取信息
-    getInfo: function () {
+    getInfo() {
         return $.get(APILIST.user_getInfo)
     }
 }
