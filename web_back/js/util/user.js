@@ -5,7 +5,7 @@
 // 这个对象上有then方法，then()的功能是获取返回的数据
 // $.post( ).then(function(res){  res 就是接口返回的数据 })
 
-var user = {
+const user = {
     // 用户登陆
     login(name, password) {
         return $.post(APILIST.user_login, {

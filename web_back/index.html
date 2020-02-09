@@ -121,7 +121,7 @@
         // 请求  退出接口
         $('#btnLogout').click(function () {
             // 用户退出
-            user.logout().then(function (res) {
+            user.logout().then(res => {
                 //console.log(res);
                 let { code, msg } = res;
                 if (code === 200) {
@@ -134,7 +134,7 @@
         })
 
         // 2. 获取管理员信息并显示
-        user.getInfo().then(function (res) {
+        user.getInfo().then(res => {
             // console.log(res)
             let { code, msg } = res;
             if (code === 200) {

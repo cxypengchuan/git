@@ -287,12 +287,12 @@
     <script>
         //1.获得所有文章分类信息，并显示在下拉列表里
         //调用接口，获得数据，用模板引擎渲染到页面上
-        category.get().then(function (res) {
+        category.get().then(res => {
             var htmlstr = template('tem_category', res)
             $('#selCategory').html(htmlstr);
         })
         //2.获取文章列表并显示在表格上
-        article.get().then(function (res) {
+        article.get().then(res => {
             let { code } = res;
             if (code == 200) {
                 var htmlstr = template('list', res)

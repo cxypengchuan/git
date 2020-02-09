@@ -37,35 +37,37 @@
     <script src="./js/util/config.js"></script>
     <!-- 引入user模块 -->
     <script src="./js/util/user.js"></script>
-    
+
     <script>
         // 1. 用户登陆
         // 思路：
         // 给按钮添加点击事件：
         // （1）收集用户信息，简单判断.
         //  (2) 请求ajax接口，根据接口的反馈做后续的动作
-        $('#btnLogin').click(function(){
-            var name =  $('#username').val().trim()
+        $('#btnLogin').click(function () {
+            var name = $('#username').val().trim()
             var password = $('#password').val().trim()
-            if(name.length === 0 || password.length === 0){
+            if (name.length === 0 || password.length === 0) {
                 alert('不能为空')
                 return
             }
-            
+
             // 用户登陆
-            user.login(name, password).then(function(res){
+            user.login(name, password).then(res => {
                 console.log(res)
+                let { code, msg } = res;
                 //2. 反馈做后续的动作
-                if(res.code === 200){
+                if (code === 200) {
                     // alert('登陆成功')
                     // 跳到主页
                     window.location.href = "./index.html"
                 } else {
                     // 失败，直接打出错别信息
-                    alert(res.msg)
+                    alert(msg)
                 }
             })
         })
-    </script> 
+    </script>
 </body>
+
 </html>
