@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>老高的表格案例</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-8">
+        <div class="page-header">
+          <h1>表格案例 <small>Follow me!!!</small></h1>
+        </div>
+        <!-- 添加框 -->
+        <div class="form-inline">
+          <div class="form-group">
+            <input v-focus type="text" v-model.trim='name' class="form-control" placeholder="请输入你理想的公司" />
+          </div>
+          <button :disabled='!name' @click='addIetm' class="btn btn-success" type="submit">添加</button>
+        </div>
+        <!-- 搜索框 -->
+        <div class="form-inline" style="margin: 20px 0">
+          <div class="form-group">
+            <input v-model='serchVal' type="text" class="form-control" placeholder="搜索关键字" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <table class="table table-hover">
+          <thead>
+            <th>#</th>
+            <th>公司名称</th>
+            <th>事件</th>
+            <th>操作</th>
+          </thead>
+          <tbody>
+            <tr v-for='(item,index) in list'>
+              <td>{{index+1}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.date | formatDate}}</td>
+              <td>
+                <a @click.prevent='delTetm(item.id)' href="#">删除</a>
+              </td>
+            </tr>
+            <tr v-if='list.length==0'>
+              <td colspan="4" style="color:#999">没有任何数据</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./vue.js"></script>
+<script src="./moment.min.js"></script>
+<script src="./axios.min.js"></script>
+<script>
+  //实例化一个VM实例
+  var vm = new Vue({
+    el: '.container-fluid',
+    data: {
+
+      //声明一个变量，双向绑定
+      serchVal: '',
+      name: '',
+      //数据渲染
+      list: [
+        // { name: '阿里巴巴', date: new Date() },
+        // { name: '腾讯', date: new Date() },
+        // { name: '字节跳动', date: new Date() }
+
+      ]
+    },
+    watch: {
+      serchVal: function (newvalue) {
+        axios.get(`http://localhost:3000/company?name_like=${newvalue}`).then((res) => {
+          this.list = res.data
+        })
+      }
+    },
+    methods: {
+      //获得数据库数据，渲染数据
+      getList() {
+        axios.get('http://localhost:3000/company').then((res) => {
+          this.list = res.data;
+        })
+      },
+      //添加数据
+      addIetm() {
+        // this.list.unshift({ name: this.name, date: new Date() })
+        // this.name = '';
+        axios.post('http://localhost:3000/company',
+          { name: this.name, date: new Date() }).then((res) => {
+            this.getList();
+            this.name = '';
+          })
+      },
+      //删除数据
+      delTetm(id) {
+        if (confirm('您确定要删除这条数据吗？')) {
+          //数组删除
+          // this.list.splice(i, 1)
+          //数组过滤
+          // this.list = this.list.filter(function (item, index) {
+          //   return index !== i
+          // })
+          axios.delete(`http://localhost:3000/company/${id}`).then(() => {
+            this.getList();
+          })
+        }
+      }
+    },
+    //过滤器
+    filters: {
+      // 格式化日期的过滤器 value就是我们的日期
+      formatDate(value) {
+        return moment(value).format("YYYY-MM-DD HH:mm:ss")
+      }
+    },
+    // 定义计算属性,搜索框显示
+    // computed: {
+    //   filterList() {
+    //     return this.list.filter((item) => {
+    //       return item.name.includes(this.serchVal)
+    //     })
+    //   }
+    // },
+    //局部自定义指令
+    directives: {
+      //指令名
+      focus: {
+        //inserted插入指令后生效
+        inserted(dom) {
+          //自动聚焦方法
+          dom.focus()
+          //updata(dom,indnx)
+          //变化值执行updata里面的函数
+        }
+      }
+    },
+    //创建实例化vue后就执行里面的函数
+    created() {
+      //   axios.get('http://localhost:3000/company').then((res) => {
+      //     this.list = res.data;
+      //   })
+      // }
+      this.getList();
+    }
+  })
+</script>
+
+</html>
